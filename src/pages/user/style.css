@@ -1,0 +1,46 @@
+.Wrapper {
+    width: 900px;
+    border: 1px solid darkgrey;
+    margin: 100px auto;
+    padding: 40px 20px;
+    border-radius: 6px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.imgWrapper {
+    width: 200px;
+
+}
+.textWrapper {
+    padding-top: 10px;
+    margin-left: 10px;
+
+}
+.row {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.rowWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.login {
+    font-size: 20px;
+    color: #45097a;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.submit {
+
+    padding: 10px 20px;
+    line-height: 1.5;
+    background-color: #054ef8;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+}

@@ -1,22 +1,36 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import style from './style.css'
 
 export default class Input extends Component {
-  onChange = (e) => {
-    const value = e.target.value;
-    const { id, onChange } = this.props;
+    onChange = (e) => {
+        const value = e.target.value;
+        const {id, onChange} = this.props;
 
-    onChange({ fieldId: id, value });
-  };
+        onChange({fieldId: id, value});
 
-  render() {
-    const { value } = this.props;
+    };
 
-    return (
-      <input
-        type="text"
-        value={value}
-        onChange={this.onChange}
-      />
-    );
-  }
+
+    onBlur = () => {
+        const {onBlur} = this.props;
+
+        onBlur && onBlur();
+    };
+
+    render() {
+        const {value, error, placeholder} = this.props;
+        return (
+            <div>
+                <input
+                    type="text"
+                    value={value}
+                    placeholder={placeholder}
+                    onChange={this.onChange}
+                    onBlur={this.onBlur}
+                    className={`${style.inputComponent} ${error ? style.inputError : ''}`}
+                />
+                <div className={style.error}>{error}</div>
+            </div>
+        );
+    }
 }

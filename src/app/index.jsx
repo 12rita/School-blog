@@ -5,14 +5,18 @@ import Header from 'src/components/header';
 import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sign-up';
 import About from 'src/pages/about';
+import MainPage from "../pages/main";
+import PostPage from "../pages/post";
 import NewPost from "../pages/new-post";
-// import FooterCounter from "src/components/footer-counter";
+import User from "../pages/user";
+
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
     componentDidMount() {
         this.props.auth();
+
     }
 
     render() {
@@ -20,25 +24,15 @@ class App extends Component {
             <>
                 <Header user={this.props.user} signOut={this.props.signOut}/>
                 <Switch>
-                    <Route path='/sign-in'>
-                        <SignIn/>
-                    </Route>
-                    <Route path='/sign-up'>
-                        <SignUp/>
-                    </Route>
-                    <Route path='/new-post'>
-                        <NewPost/>
-                    </Route>
-                    <Route path='/about'>
-                        <About/>
-                    </Route>
-                    <Route path='/'>
-                        <h1>MAIN PAGE</h1>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi excepturi illum incidunt magni
-                        nam officia qui sed similique suscipit unde.
-                    </Route>
+                    <Route path='/sign-in' exact={true} component={SignIn} />
+                    <Route path='/sign-up' exact={true} component={SignUp} />
+                    {this.props.user && <Route path='/new-post' exact={true} component={NewPost} />}
+                    {this.props.user && <Route path='/user/:id' exact={true} component={User} />}
+                    <Route path='/about' exact={true} component={About}  />
+                    <Route path='/post/:id' exact={true} component={PostPage} />
+                    <Route path='/' exact={true} component={MainPage} />
                 </Switch>
-                {/*<FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction} />*/}
+
             </>
         );
     }

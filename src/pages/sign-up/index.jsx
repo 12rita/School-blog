@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
+import style from './style.css'
 
 class SignUp extends Component {
     static propTypes = {
@@ -14,79 +15,85 @@ class SignUp extends Component {
         const {dataForm} = this.props;
         this.props.signUpAction(dataForm);
     };
+    checkLogin = () => {
+
+        const {checkLoginAction, dataForm} = this.props;
+        checkLoginAction(dataForm.login);
+
+    };
 
     render() {
+        const {errors} = this.props;
+
         return (
-            <div>
-                <div>
-                    <div>
-                        login
-                    </div>
+            <div className={style.signUpWrapper}>
+                <div className={style.row}>
                     <div>
                         <Input
                             id="login"
+                            placeholder="Login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            onBlur={this.checkLogin}
+                            error={errors.login}
                         />
                     </div>
                 </div>
-                <div>
-                    <div>
-                        email
-                    </div>
-                    <div>
-                        <Input
-                            id="email"
-                            value={this.props.dataForm.email}
-                            onChange={this.props.changeFieldAction}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        first name
-                    </div>
+                <div className={style.row}>
                     <div>
                         <Input
                             id="firstName"
+                            placeholder="Firstname"
                             value={this.props.dataForm.firstName}
                             onChange={this.props.changeFieldAction}
+                            error={errors.firstName}
                         />
                     </div>
                 </div>
-                <div>
-                    <div>
-                        last name
-                    </div>
+                <div className={style.row}>
                     <div>
                         <Input
                             id="lastName"
+                            placeholder="Lastname"
                             value={this.props.dataForm.lastName}
                             onChange={this.props.changeFieldAction}
+                            error={errors.lastName}
                         />
                     </div>
                 </div>
-
-                <div>
+                <div className={style.row}>
                     <div>
-                        password
+                        <Input
+                            id="email"
+                            placeholder="Email"
+                            value={this.props.dataForm.email}
+                            onChange={this.props.changeFieldAction}
+                            error={errors.email}
+                        />
                     </div>
+                </div>
+                <div className={style.row}>
                     <div>
                         <Input
                             id="password"
+                            placeholder="Password"
                             value={this.props.dataForm.password}
                             onChange={this.props.changeFieldAction}
+                            error={errors.password}
                         />
                     </div>
                 </div>
-                <button onClick={this.onSubmit}>Sign Up</button>
+                <div className={style.row}>
+                    <button className={style.submit} onClick={this.onSubmit}>Зарегистрироваться</button>
+                </div>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    dataForm: state.signUp.dataForm
+    dataForm: state.signUp.dataForm,
+    errors: state.signUp.errors,
 });
 
 export default connect(mapStateToProps, Actions)(SignUp);
