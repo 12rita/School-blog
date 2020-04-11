@@ -29,6 +29,7 @@ export function signOut() {
         method: 'GET'
     });
 }
+
 export function checkLogin(login) {
     return axiosFetch({
         url: 'users/check-exists/',
@@ -38,13 +39,25 @@ export function checkLogin(login) {
         }
     });
 }
+
 export function getUser(id) {
     return axiosFetch({
-        url: `/users/${id}`,
-        method: 'GET'
+            url: `/users/${id}`,
+            method: 'GET'
 
         }
+    )
+}
 
+export function changePassword(currentPassword, newPassword) {
+    return axiosFetch({
+            url: `users/change/password/`,
+            method: 'PUT',
+            data: {
+                currentPassword: currentPassword,
+                newPassword: newPassword
+            }
+        }
     )
 
 }

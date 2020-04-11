@@ -22,6 +22,7 @@ function merge(state, someObject) {
 
     return Object.assign(clonnedState, someObject);
 }
+
 function mapErrorFromServer(errorFromServer) {
     const errorCode = Object.keys(errorFromServer)[0];
 

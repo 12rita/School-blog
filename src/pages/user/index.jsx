@@ -2,18 +2,30 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as Actions from './actions'
 import style from './style.css'
+import Modal from 'src/components/modal'
+import Input from "../../components/input";
 
 class User extends Component {
+
 
     componentDidMount() {
         const {match} = this.props;
         this.props.getUserAction(match.params.id);
     }
+    onClick = () => {
+        let {isShownModal, changeModal} = this.props;
+        changeModal ( isShownModal);
+    };
+    onSubmit = () => {
+        const {currentPassword, newPassword} = this.props;
+        this.props.changePasswordAction(currentPassword, newPassword);
+    };
 
 
     render() {
 
-        const {data} = this.props;
+        const {data, isShownModal, errors} = this.props;
+
         let signDate = data && data.registrationDate;
         let parseDate = new Date(Date.parse(signDate));
         let day = parseDate.getDate();
@@ -25,8 +37,6 @@ class User extends Component {
                 {data
                     ?
                     <div className={style.Wrapper}>
-
-
                         <div className={style.imgWrapper}>
                             <div className={style.login}>{data.login}</div>
                             <img src={`http://school-blog.ru/images/${data.avatar}`}/>
@@ -64,8 +74,21 @@ class User extends Component {
                                 <div className={style.row}>Количество поставленных дизлайков:</div>
                                 <div>{data.dislikesCount}</div>
                             </div>
-                            <button className={style.submit}>Изменить пароль</button>
+                            <button className={style.submit} onClick={this.onClick}>Изменить пароль</button>
                         </div>
+                        {
+                            isShownModal &&  <Modal
+                                oldId = 'currentPassword'
+                                newId = 'newPassword'
+                                valueOld={this.props.currentPassword}
+                                valueNew = {this.props.newPassword}
+                                onChange={this.props.changeFieldAction}
+                                closeModal={this.onClick}
+                                submitModal = {this.onSubmit}
+                                errorOldPass={this.props.errors.oldPass}
+                                errorNewPass={this.props.errors.newPass}
+                            />
+                        }
 
                     </div>
 
@@ -78,7 +101,12 @@ class User extends Component {
 
 function mapStateToProps(state) {
     return {
-        data: state.userPage.data
+        data: state.userPage.data,
+        isShownModal: state.userPage.isShownModal,
+        currentPassword: state.userPage.currentPassword,
+        newPassword: state.userPage.newPassword,
+        errors: state.userPage.errors
+       // password: state.userPage.password
     };
 }
 

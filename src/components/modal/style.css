@@ -10,6 +10,29 @@
 }
 
 .modal {
-    background: white;
+    width: 500px;
+    border: 1px solid darkgrey;
     margin: 100px auto;
+    padding: 40px 20px;
+    border-radius: 6px;
+    background: #fef7f2;
+}
+.button {
+    padding: 10px 20px;
+    line-height: 1.5;
+    background-color: #1e826d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+    margin-right: 5px;
+    border: 0;
+
+}
+
+
+
+.modal input {
+    margin-top: 20px;
 }
