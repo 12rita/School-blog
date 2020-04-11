@@ -20,11 +20,17 @@ class User extends Component {
         const {currentPassword, newPassword} = this.props;
         this.props.changePasswordAction(currentPassword, newPassword);
     };
+    showNotify = () => {
+        const {offNotify} = this.props;
+        setTimeout(offNotify, 5000);
+
+        return 'Пароль был успешно изменён';
+    };
 
 
     render() {
 
-        const {data, isShownModal, errors} = this.props;
+        const {data, isShownModal, currentPassword, newPassword, errors, notifier} = this.props;
 
         let signDate = data && data.registrationDate;
         let parseDate = new Date(Date.parse(signDate));
@@ -75,18 +81,19 @@ class User extends Component {
                                 <div>{data.dislikesCount}</div>
                             </div>
                             <button className={style.submit} onClick={this.onClick}>Изменить пароль</button>
+                            <div className={style.notify}>{ notifier ? this.showNotify() : ''}</div>
                         </div>
                         {
                             isShownModal &&  <Modal
                                 oldId = 'currentPassword'
                                 newId = 'newPassword'
-                                valueOld={this.props.currentPassword}
-                                valueNew = {this.props.newPassword}
+                                valueOld={currentPassword}
+                                valueNew = {newPassword}
                                 onChange={this.props.changeFieldAction}
                                 closeModal={this.onClick}
                                 submitModal = {this.onSubmit}
-                                errorOldPass={this.props.errors.oldPass}
-                                errorNewPass={this.props.errors.newPass}
+                                errorOldPass={errors.oldPass}
+                                errorNewPass={errors.newPass}
                             />
                         }
 
@@ -105,7 +112,8 @@ function mapStateToProps(state) {
         isShownModal: state.userPage.isShownModal,
         currentPassword: state.userPage.currentPassword,
         newPassword: state.userPage.newPassword,
-        errors: state.userPage.errors
+        errors: state.userPage.errors,
+        notifier: state.userPage.notifier
        // password: state.userPage.password
     };
 }

@@ -16,6 +16,12 @@ export const getUserAction = (id) => {
 export const changeModal = (isShown) => {
    return  {type:"CHANGE_MODAL", payload: !isShown};
 }
+export const offNotify = () => {
+
+        return {type: "OFF_NOTIFY"}
+
+
+}
 
 export const changeFieldAction = ({fieldId, value}) => ({
     type: 'MODAL_CHANGE_DATA_FORM',

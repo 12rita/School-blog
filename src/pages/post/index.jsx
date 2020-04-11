@@ -14,15 +14,10 @@ class PostPage extends Component {
     const { data } = this.props;
 
 
-
     return (
       <div>
         {data
             ?
-          // ? <div className={style.postWrapper}>
-          //     <div className={style.postTitle}>{data.title}</div>
-          //     <div className={style.postContent}>{data.content}</div>
-          //   </div>
             <Post
                 title = {data.title}
                 content = {data.content}

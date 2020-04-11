@@ -8,7 +8,8 @@ let initState = {
     errors: {
         oldPass: '',
         newPass: ''
-    }
+    },
+    notifier: false
 
 }
 
@@ -28,6 +29,9 @@ export default function userReducer(state = initState, action) {
         case 'CHANGE_MODAL':
             return {
                 ...state,
+                currentPassword: '',
+                newPassword: '',
+                errors: {},
                 isShownModal: action.payload
             }
         case 'MODAL_CHANGE_DATA_FORM':
@@ -35,16 +39,26 @@ export default function userReducer(state = initState, action) {
                 ...state,
                 [action.payload.fieldId]: action.payload.value
             };
+        case 'CHANGE_PASSWORD_SUCCESS':{
+            return {
+                ...state,
+                isShownModal: !state.isShownModal,
+                notifier: true
+            }
+        }
         case  'CHANGE_PASSWORD_FAIL_CURR_PASS':
-        case  'CHANGE_PASSWORD_FAIL_NEW_LENGTH':{
-
+        case  'CHANGE_PASSWORD_FAIL_NEW_LENGTH':
             return merge(state, {
                 errors: {
                     ...state.errors,
                     [action.id]: action.payload
                 }
             })
-        }
+        case 'OFF_NOTIFY':
+            return {
+                ...state,
+                notifier: false
+            }
 
 
         default:
