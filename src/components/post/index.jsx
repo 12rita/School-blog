@@ -26,9 +26,11 @@ export default class Post extends Component {
                 </div>
                 <div className={style.postContent}>{content}</div>
                 <div className={style.footer}>
-                    <div>
-                        <div id={id} onClick={this.liked} className={style.like}>Like {likesCount}</div>
-                        <div id={id} onClick={this.disliked} className={style.dislike}>Dislike {dislikesCount}</div>
+                    <div className={style.wrapLike}>
+                        <div id={id} onClick={this.liked} className={style.heart}/>
+                        <div>{likesCount}</div>
+                        <div id={id} onClick={this.disliked} className={style.dislike}/>
+                        <div>{dislikesCount}</div>
                     </div>
                     <div className={style.viewWrapper}> {viewsCount} <div className={style.eye}/></div>
 

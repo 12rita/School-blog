@@ -47,15 +47,24 @@
     cursor: pointer;
     /*background-image: url("../../assets/images/like.png");*/
 }
-.wrapLike{
+
+.wrapLike {
+    display: flex;
+    flex-direction: row;
     position: absolute;
-    width: 50px;
-    height: 20px;
+    padding-bottom: 5px;
+    width: 100px;
+
+    /*width: 50px;*/
+    /*height: 20px;*/
+
 
 }
+
 .heart {
     position: relative;
-    display: inline-block;
+    margin: 0 10px;
+    /*display: inline-block;*/
     cursor: pointer;
     width: 10px;
     height: 17px;
@@ -71,6 +80,7 @@
     -o-transform: rotate(315deg);
     transform: rotate(315deg);
 }
+
 /* Формируем правую часть */
 .heart:before {
     position: absolute;
@@ -85,20 +95,62 @@
     -moz-border-radius: 5px 5px 0 0;
     border-radius: 0 5px 5px 0;
 }
+
 /* Убираем тень при наведении */
-.heart:hover:before, .heart:hover{
-    box-shadow:none;
+.heart:hover:before, .heart:hover {
+    box-shadow: none;
 }
 
 .dislike {
-    color: #f80511;
-    display: inline-block;
-    padding: 0 5px;
+    position: relative;
+    /*display: inline-block;*/
     cursor: pointer;
+    margin: 0 10px;
+    width: 10px;
+    height: 17px;
+    background-color: black;
+    box-shadow: -1px 0px 2px #444;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    /* Определяем угол наклона */
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -ms-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    transform: rotate(315deg);
 }
+
+/* Формируем правую часть */
+.dislike:before {
+    position: absolute;
+    width: 17px;
+    height: 10px;
+    left: 0;
+    bottom: 0;
+    content: "";
+    background-color: black;
+    box-shadow: 0px 3px 3px #444444;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Убираем тень при наведении */
+.dislike:hover:before, .dislike:hover {
+    box-shadow: none;
+}
+
+/*.dislike {*/
+/*    color: #f80511;*/
+/*    display: inline-block;*/
+/*    padding: 0 5px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .eye {
     position: relative;
+    right: 0;
     border: 2px solid #333;
     display: inline-block;
     width: 18px;
@@ -123,6 +175,7 @@
 .viewWrapper {
     display: inline-flex;
     align-items: center;
+
 }
 
 .footer {
