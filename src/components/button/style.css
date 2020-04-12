@@ -1,6 +1,12 @@
 .button {
-  padding: 5px 10px;
-  background: coral;
+  outline: none;
+  border: 0;
+  background-color: #1e826d;
   color: white;
   font-size: 16px;
+  border-radius: 6px;
+  padding: 10px 20px;
+  line-height: 1.5;
+  cursor: pointer;
+
 }

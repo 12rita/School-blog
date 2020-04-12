@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from './actions';
-import style from './style.css';
 import Post from "../../components/post";
 
 class PostPage extends Component {
@@ -9,6 +8,16 @@ class PostPage extends Component {
     const { match } = this.props;
     this.props.getPostDataAction(match.params.id);
   }
+  like = () => {
+    const {match} = this.props;
+    this.props.likePostAction(match.params.id);
+
+  };
+
+  dislike = () => {
+    const {match} = this.props;
+    this.props.dislikePostAction(match.params.id);
+  };
 
   render() {
     const { data } = this.props;
@@ -21,6 +30,11 @@ class PostPage extends Component {
             <Post
                 title = {data.title}
                 content = {data.content}
+                like = {this.like}
+                dislike = {this.dislike}
+                likesCount = {data.likesCount}
+                dislikesCount = {data.dislikesCount}
+                viewsCount = {data.viewsCount}
             />
           : <div>loading...</div>
         }

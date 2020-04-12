@@ -1,6 +1,7 @@
 const initState = {
   posts: [],
-  isLoadingPosts: false
+  isLoadingPosts: false,
+
 };
 
 export default function mainReducer(state = initState, action) {
@@ -29,12 +30,14 @@ export default function mainReducer(state = initState, action) {
     case 'LIKE_POST_SUCCESS':
       return {
         ...state,
-        posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
+        posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post),
+
       };
     case 'DISLIKE_POST_SUCCESS':
       return {
         ...state,
-        posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
+        posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post),
+
       };
     default:
       return state;

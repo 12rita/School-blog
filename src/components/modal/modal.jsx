@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import style from './style.css';
 import Input from "../input";
 
+
 class Modal extends Component {
   render() {
     return (

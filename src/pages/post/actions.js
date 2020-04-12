@@ -11,3 +11,26 @@ export const getPostDataAction = (id) => {
     }
   }
 };
+export const likePostAction = (id) => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: 'LIKE_POST_REQUEST' });
+      const response = await API.posts.likePost(id);
+      dispatch({ type: 'LIKE_POST_SUCCESS', payload: response.data })
+    } catch(error) {
+      dispatch({ type: 'LIKE_POST_FAIL' });
+    }
+  }
+};
+
+export const dislikePostAction = (id) => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: 'DISLIKE_POST_REQUEST' });
+      const response = await API.posts.dislikePost(id);
+      dispatch({ type: 'DISLIKE_POST_SUCCESS', payload: response.data })
+    } catch(error) {
+      dispatch({ type: 'DISLIKE_POST_FAIL' });
+    }
+  }
+};

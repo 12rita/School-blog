@@ -36,12 +36,12 @@
 .submit {
     padding: 10px 20px;
     line-height: 1.5;
-    background-color: #1e826d;
-    color: white;
+      color: white;
     border-radius: 6px;
     cursor: pointer;
     outline: none;
     border: 0;
+    background-color: #1e826d;
 }
 .notify{
     color: #1e7a22;
