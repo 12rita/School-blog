@@ -24,24 +24,28 @@ export default class Post extends Component {
                 <div className={style.postTitle}>
                     <Link className={style.linkTitle} to={`/post/${id}`}>{title}</Link>
                 </div>
-                <div className={style.postContent}>{content}</div>
-                <div className={style.footer}>
-                    <div className={style.wrapLike}>
-                        <div id={id} onClick={this.liked} className={relLikes.length? style.heart :style.heartOff }/>
-                        <div>{likesCount}</div>
-                        <div id={id} onClick={this.disliked} className={relDislikes.length? style.dislike: style.dislikeOff}/>
-                        <div>{dislikesCount}</div>
+                <div className={style.wrapContent}>
+                    <div className={style.wrapArrows}>
+                        <div className={style.wrapLike}>
+
+                            <div id={id} onClick={this.liked} className={relLikes.length ? style.like : style.likeOff}/>
+                            <div>{likesCount}</div>
+                        </div>
+                        <div className={style.wrapDislike}>
+                            <div id={id} onClick={this.disliked}
+                                 className={relDislikes.length ? style.dislike : style.dislikeOff}/>
+                            <div>{dislikesCount}</div>
+                        </div>
                     </div>
-                    <div className={style.viewWrapper}> {viewsCount} <div className={style.eye}/></div>
+                    <div className={style.postContent}>{content}</div>
+                    </div>
+                <div className={style.footer}>
+
+                    <div className={style.viewWrapper}> {viewsCount}
+                        <div className={style.eye}/>
+                    </div>
 
                 </div>
-
-
-
-
-
-
-
 
 
             </div>

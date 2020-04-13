@@ -1,9 +1,3 @@
-
-/*.postList {*/
-/*    width: 500px;*/
-/*    margin: 0 auto;*/
-/*}*/
-
 .postWrapper {
     border: 1px solid #333;
     border-radius: 4px;
@@ -34,198 +28,93 @@
 }
 
 
-.footer {
+.wrapArrows{
+margin-top: 15px;
+    margin-left: 5px;
+}
+.wrapContent{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .like {
-
     display: inline-block;
-    color: #38fac7;
-    padding: 0 5px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #2ba82d;
     cursor: pointer;
-    /*background-image: url("../../assets/images/like.png");*/
+}
+
+.like:hover {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #2c822e;
+
+}
+
+.likeOff {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid grey;
+    cursor: pointer;
+}
+
+.likeOff:hover {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #2ba82d;
+}
+
+
+.dislike {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #b41024;
+    cursor: pointer;
+}
+
+.dislike:hover {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #7b0b19;
+}
+
+.dislikeOff {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid grey;
+    cursor: pointer;
+}
+
+.dislikeOff:hover {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #b41024;
 }
 
 .wrapLike {
     display: flex;
     flex-direction: row;
     padding-bottom: 5px;
-    width: 100px;
-
-    /*width: 50px;*/
-    /*height: 20px;*/
-
-
-}
-.heartOff {
-    position: relative;
-    margin: 0 10px;
-    /*display: inline-block;*/
-    cursor: pointer;
-    width: 10px;
-    height: 17px;
-    background-color: grey;
-    box-shadow: -1px 0 2px #444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
-    /* Определяем угол наклона */
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
+    width: 20px;
 }
 
-/* Формируем правую часть */
-.heartOff:before {
-    position: absolute;
-    width: 17px;
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background-color: grey;
-    box-shadow: 0 3px 3px #444444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 0 5px 5px 0;
+.wrapDislike {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    width: 20px;
+
 }
 
-/* Убираем тень при наведении */
-.heartOff:hover:before, .heartOff:hover {
-    box-shadow: none;
-}
-
-.heart {
-    position: relative;
-    margin: 0 10px;
-    /*display: inline-block;*/
-    cursor: pointer;
-    width: 10px;
-    height: 17px;
-    background-color: red;
-    box-shadow: -1px 0 2px #444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
-    /* Определяем угол наклона */
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
-}
-
-/* Формируем правую часть */
-.heart:before {
-    position: absolute;
-    width: 17px;
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background-color: red;
-    box-shadow: 0 3px 3px #444444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 0 5px 5px 0;
-}
-
-/* Убираем тень при наведении */
-.heart:hover:before, .heart:hover {
-    box-shadow: none;
-}
-
-.dislikeOff {
-    position: relative;
-    /*display: inline-block;*/
-    cursor: pointer;
-    margin: 0 10px;
-    width: 10px;
-    height: 17px;
-    background-color: grey;
-    box-shadow: -1px 0 2px #444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
-    /* Определяем угол наклона */
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
-}
-
-/* Формируем правую часть */
-.dislikeOff:before {
-    position: absolute;
-    width: 17px;
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background-color: grey;
-    box-shadow: 0 3px 3px #444444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 0 5px 5px 0;
-}
-
-/* Убираем тень при наведении */
-.dislikeOff:hover:before, .dislikeOff:hover {
-    box-shadow: none;
-}
-
-.dislike {
-    position: relative;
-    /*display: inline-block;*/
-    cursor: pointer;
-    margin: 0 10px;
-    width: 10px;
-    height: 17px;
-    background-color: black;
-    box-shadow: -1px 0 2px #444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
-    /* Определяем угол наклона */
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
-}
-
-/* Формируем правую часть */
-.dislike:before {
-    position: absolute;
-    width: 17px;
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background-color: black;
-    box-shadow: 0 3px 3px #444444;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    border-radius: 0 5px 5px 0;
-}
-
-/* Убираем тень при наведении */
-.dislike:hover:before, .dislike:hover {
-    box-shadow: none;
-}
-
-/*.dislike {*/
-/*    color: #f80511;*/
-/*    display: inline-block;*/
-/*    padding: 0 5px;*/
-/*    cursor: pointer;*/
-/*}*/
 
 .eye {
     position: relative;
@@ -253,14 +142,18 @@
 
 .viewWrapper {
     display: inline-flex;
-    align-items: center;
+    /*align-items: center;*/
+    /*float: right;*/
+    margin-right: 0;
+
 
 }
 
 .footer {
-    display: flex;
+    /*display: flex;*/
     flex-direction: row;
-    justify-content: space-between;
+    text-align: right;
+    /*justify-content: space-between;*/
 }
 
 
