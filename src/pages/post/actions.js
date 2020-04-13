@@ -18,7 +18,7 @@ export const likePostAction = (id) => {
       const response = await API.posts.likePost(id);
       dispatch({ type: 'LIKE_POST_SUCCESS', payload: response.data })
     } catch(error) {
-      dispatch({ type: 'LIKE_POST_FAIL' });
+      dispatch({ type: 'LIKE_POST_FAIL', payload: error.response});
     }
   }
 };
@@ -30,7 +30,7 @@ export const dislikePostAction = (id) => {
       const response = await API.posts.dislikePost(id);
       dispatch({ type: 'DISLIKE_POST_SUCCESS', payload: response.data })
     } catch(error) {
-      dispatch({ type: 'DISLIKE_POST_FAIL' });
+      dispatch({ type: 'DISLIKE_POST_FAIL', payload: error.response });
     }
   }
 };

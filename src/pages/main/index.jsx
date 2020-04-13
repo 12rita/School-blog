@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import * as Actions from './actions';
 import style from './style.css';
 import Post from "../../components/post";
@@ -14,7 +13,7 @@ class MainPage extends Component {
         window.removeEventListener('scroll', this.onScroll);
     }
 
-    onScroll = (e) => {
+    onScroll = () => {
         const { posts, isLoadingPosts } = this.props;
         const postsLength = posts.length;
         const windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
@@ -49,6 +48,8 @@ class MainPage extends Component {
                             likesCount = {postItem.likesCount}
                             dislikesCount = {postItem.dislikesCount}
                             viewsCount = {postItem.viewsCount}
+                            relLikes = {postItem.relatedLikes}
+                            relDislikes = {postItem.relatedDislikes}
                             like = {this.like}
                             dislike = {this.dislike}
                         />

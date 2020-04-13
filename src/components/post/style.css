@@ -67,7 +67,7 @@
     cursor: pointer;
     width: 10px;
     height: 17px;
-    background-color: red;
+    background-color: grey;
     box-shadow: -1px 0 2px #444;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -88,7 +88,7 @@
     left: 0;
     bottom: 0;
     content: "";
-    background-color: red;
+    background-color: grey;
     box-shadow: 0 3px 3px #444444;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -147,7 +147,7 @@
     margin: 0 10px;
     width: 10px;
     height: 17px;
-    background-color: black;
+    background-color: grey;
     box-shadow: -1px 0 2px #444;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -168,7 +168,7 @@
     left: 0;
     bottom: 0;
     content: "";
-    background-color: black;
+    background-color: grey;
     box-shadow: 0 3px 3px #444444;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;

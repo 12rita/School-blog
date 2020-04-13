@@ -8,26 +8,24 @@ class PostPage extends Component {
     const { match } = this.props;
     this.props.getPostDataAction(match.params.id);
   }
-  like = () => {
-    const {match} = this.props;
-    this.props.likePostAction(match.params.id);
+  like = (id) => {
 
+    this.props.likePostAction(id);
   };
 
-  dislike = () => {
-    const {match} = this.props;
-    this.props.dislikePostAction(match.params.id);
+  dislike = (id) => {
+
+    this.props.dislikePostAction(id);
   };
 
   render() {
     const { data } = this.props;
-
-
     return (
       <div>
         {data
             ?
             <Post
+                id = {data.id}
                 title = {data.title}
                 content = {data.content}
                 like = {this.like}
@@ -35,6 +33,8 @@ class PostPage extends Component {
                 likesCount = {data.likesCount}
                 dislikesCount = {data.dislikesCount}
                 viewsCount = {data.viewsCount}
+                relLikes = {data.relatedLikes}
+                relDislikes = {data.relatedDislikes}
             />
           : <div>loading...</div>
         }
